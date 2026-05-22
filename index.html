@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <link rel="icon" href="/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/favicon.png">
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#121212"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <title>ASD VOLLEY 96</title>
+  <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style-apple.css">
+
+
+  <style>
+    /* Loader */
+    #app-loader{position:fixed;inset:0;z-index:100000;display:grid;place-items:center;background:#0b0b0b}
+    #app-loader .spinner{width:48px;height:48px;border:4px solid rgba(255,255,255,.25);border-top-color:#fff;border-radius:50%;animation:spin 1s linear infinite}
+    #app-loader.hidden{opacity:0;pointer-events:none;transition:opacity .3s ease}
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    /* Modal immagini */
+    .modal-img-viewer{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.8);z-index:99999}
+    .modal-img-viewer.open{display:flex}
+    .modal-img-viewer img{max-width:90vw;max-height:90vh;object-fit:contain}
+  </style>
+</head>
+
+<body>
+  <header class="header-tot">
+    <img class="brand-logo" src="img/log.png" alt="Logo">
+    <button class="hamburger" id="hamburger" aria-label="Apri menu" type="button">&#9776;</button>
+    <nav id="navbar">
+      <a href="index.html" data-url="index.html">Home</a>
+      <a href="squadre.html" data-url="squadre.html">Squadre e Società</a>
+      <a href="calendario.html" data-url="calendario.html">Calendario e Risultati</a>
+      <a href="classifiche.html" data-url="classifiche.html">Classifiche</a>
+      <a href="contatti.html" data-url="contatti.html">Contatti</a>
+      </nav>
+
+    <div class="social-icons">
+      <a href="https://www.instagram.com/a.s.d.volley96/" target="_blank" rel="noopener noreferrer">
+        <img class="social-logo-insta" src="img/instagram.png" alt="Instagram">
+      </a>
+      <a href="https://www.facebook.com/asdvolley96" target="_blank" rel="noopener noreferrer">
+        <img class="social-logo-facebook" src="img/facebook.png" alt="Facebook">
+      </a>
+      <a href="https://www.youtube.com/@ASD_VOLLEY96" target="_blank" rel="noopener noreferrer">
+        <img class="social-logo-youtube" src="img/youtube.png" alt="Youtube">
+      </a>
+    </div>
+  </header>
+
+  <main>
+    
+    <div>
+      <div class="news-wrapper">
+        <section class="news-carousel">
+          <button class="prev" type="button">❮</button>
+          <div class="slides"></div>
+          <button class="next" type="button">❯</button>
+        </section>
+      </div>
+      <section class="news-grid"></section>
+    </div>
+<h1 class="sponsor-title">
+  I nostri main sponsor
+</h1>
+    <a href="https://www.fimaformazione.it/" target="_blank" rel="noopener noreferrer">
+      <div class="sponsor-banner">
+        <img src="img/cropped-Fima-Logo-01.png" alt="Sponsor Logo" class="sponsor-logo">
+      </div>
+    </a>
+    <a href="https://www.adgsrl.com/" target="_blank" rel="noopener noreferrer">
+      <div class="sponsor-banner">
+        <img src="https://www.adgsrl.com/wp-content/uploads/2025/01/LOGO-ADG-NDT-SOLUTIONS-ROSSO.png" alt="Sponsor Logo" class="sponsor-logo">
+      </div>
+    </a>
+
+    <section class="results-section">
+      <h2 class="results-title">Ultimi Risultati</h2>
+      <div class="buttons-filter">
+        <button data-cat="Femminile" class="filter-btn active" type="button">Femminile</button>
+        <button data-cat="Maschile" class="filter-btn" type="button">Maschile</button>
+      </div>
+      <div class="results-grid" id="results-container"></div>
+    </section>
+
+    <section class="mvp-section">
+      <h2 class="mvp-title">Ultimi scarabei di giornata</h2>
+      <div class="mvp-grid" id="scarabei-container"></div>
+    </section>
+
+    <section class="teams-section">
+      <h2 class="teams-title">Le nostre squadre</h2>
+      <div class="teams-grid">
+        <a href="squadre.html?cat=Femminile" data-url="squadre.html?cat=Femminile">
+          <div class="team-card">
+            <img src="img/squadra_femminile/femm.jpg" alt="Squadra 1">
+            <h3>Serie C femminile</h3>
+          </div>
+        </a>
+        <a href="squadre.html?cat=Maschile" data-url="squadre.html?cat=Maschile">
+          <div class="team-card">
+            <img src="img/squadra_maschile/masch.jpeg" alt="Squadra 2">
+            <h3>Serie C maschile</h3>
+          </div>
+        </a>
+        <a>
+          <div class="team-card">
+            <img src="img/PrimaDiv.jpeg" alt="Squadra 3">
+            <h3>1° Divisione Maschile</h3>
+          </div>
+        </a>
+          <a>
+          <div class="team-card">
+            <img src="img/Under17M.jpeg" alt="Squadra 4">
+            <h3>Under 17 Maschile</h3>
+          </div>
+        </a>
+        <a>
+          <div class="team-card">
+            <img src="img/Under15M.jpeg" alt="Squadra 5">
+            <h3>Under 15 Maschile</h3>
+          </div>
+        </a>
+        <a>
+          <div class="team-card">
+            <img src="img/Under14F.jpeg" alt="Squadra 6">
+            <h3>Under 14 Femminile</h3>
+          </div>
+        </a>
+        <a>
+          <div class="team-card">
+            <img src="img/S3.jpeg" alt="Squadra 7">
+            <h3>Settore giovanile S3</h3>
+          </div>
+        </a>
+        <a>
+          <div class="team-card">
+            <img src="img/Mista.jpeg" alt="Squadra 8">
+            <h3>Libera Mista</h3>
+          </div>
+        </a>
+      </div>
+    </section>
+    <a id="live-button" class="live-fab live-hidden" href="#" target="_blank" rel="noopener">
+      <span class="dot"></span> Guarda la diretta
+    </a>
+    
+    
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> ASD VOLLEY 96 — Tutti i diritti riservati</p>
+    <p>Web design &amp; sviluppo © 2025 <a href="mailto:danilo.lcq@gmail.com">Danilo Alacqua</a></p>
+  </footer>
+
+  <!-- Modal unico -->
+  <div class="modal-img-viewer" id="imgModal" aria-hidden="true" role="dialog">
+    <img src="" alt="">
+  </div>
+
+  <!-- Loader -->
+  <div id="app-loader" aria-live="polite" aria-busy="true">
+    <div class="spinner" aria-hidden="true"></div>
+  </div>
+
+  <script src="js/fade.js" defer></script>
+  <script src="js/live.js" defer></script>
+  <script src="js/menu.js" defer></script>
+  <script src="js/script.js" defer></script>
+ 
+
+  <script>
+    const SHEET_ID = "1ucM1JY5MXHF7-9mpjp2mfB41TvoA1ziMUGGz86woQXA";
+    const GS = (tab) => `https://opensheet.elk.sh/${SHEET_ID}/${encodeURIComponent(tab)}`;
+    const $  = (s, r=document) => r.querySelector(s);
+    const $$ = (s, r=document) => [...r.querySelectorAll(s)];
+    const tidy = (s) => typeof s === 'string' ? s.trim() : s;
+    function driveIdFrom(urlOrId){
+  if(!urlOrId) return '';
+  const s = String(urlOrId).trim()
+    .replace(/^"|"$/g,'')        // toglie doppi apici del CSV
+    .replace(/""/g,'"');         // normalizza apici interni
+
+  // /file/d/ID/...
+  const m1 = s.match(/\/d\/([a-zA-Z0-9_-]{10,})/);
+  // ?id=ID
+  const m2 = s.match(/[?&]id=([a-zA-Z0-9_-]{10,})/);
+  // uc?export=view&id=ID  oppure uc?id=ID
+  const m3 = s.match(/uc\?(?:export=\w+&)?id=([a-zA-Z0-9_-]{10,})/);
+  // solo ID
+  const m4 = s.match(/^[a-zA-Z0-9_-]{10,}$/);
+
+  return (m1&&m1[1]) || (m2&&m2[1]) || (m3&&m3[1]) || (m4&&m4[0]) || '';
+}
+
+function fixImg(s){
+  if(!s) return '';
+  const id = driveIdFrom(s);
+  if (id){
+    // opzione 1: viewer diretto
+    // return `https://drive.google.com/uc?export=view&id=${id}`;
+
+    // opzione 2: thumbnail stabile (consigliato)
+    return `https://drive.google.com/thumbnail?id=${id}&sz=w2000`;
+  }
+  return String(s).trim();
+}
+
+window.__testDriveFix = (raw) => {
+  const out = fixImg(raw);
+  console.log('[fixImg]', { raw, out });
+  const t = document.createElement('img');
+  t.src = out;
+  t.alt = 'test';
+  t.style.maxWidth = '240px';
+  t.style.border = '2px solid #0f0';
+  t.onerror = () => console.warn('IMG ERROR for', out);
+  document.body.appendChild(t);
+};
+
+
+    const parseSets = (str) => (tidy(str || '') || '').split(',').map(x => x.trim()).filter(Boolean);
+
+    async function fetchSheet(tab){
+      const res = await fetch(GS(tab), { cache:'no-store' });
+      if(!res.ok) throw new Error(`Fetch fallito: ${tab} (${res.status})`);
+      return res.json();
+    }
+
+function hideLoader() {
+  const el = document.getElementById('app-loader');
+  if (el) {
+    el.classList.add('hidden');
+    el.addEventListener('transitionend', () => el.remove(), { once:true });
+    setTimeout(() => el && el.remove(), 1000);
+  }
+
+  // 🔴 QUESTA È LA RIGA CHE TI SBLOCCA TUTTO
+  document.documentElement.classList.add('ready');
+}
+
+
+
+    function initYear(){
+      const y = $('#year');
+      if (y) y.textContent = new Date().getFullYear();
+    }
+
+    function initImageModal(){
+      const modal = $('#imgModal');
+      const imgEl = modal.querySelector('img');
+
+      // click solo sulle immagini del carosello
+      document.addEventListener('click', (e) => {
+        const img = e.target.closest('.news-carousel img');
+        if (!img) return;
+        imgEl.src = img.currentSrc || img.src;
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden','false');
+      });
+
+      modal.addEventListener('click', () => {
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden','true');
+        imgEl.src = '';
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('open')) modal.click();
+      });
+    }
+
+   async function initCarosello() {
+  try {
+    const rows = await fetchSheet('Carosello');
+    const slides = rows.map(r => ({
+      immagine: fixImg(r.immagine),
+      caption: tidy(r.caption),
+      descrizione: tidy(r.descrizione)
+    }));
+
+    const wrap = document.querySelector('.news-carousel .slides');
+    if (!wrap) return;
+
+    wrap.innerHTML = '';
+
+    slides.forEach(s => {
+      const d = document.createElement('div');
+      d.className = 'slide';
+      d.innerHTML = `
+        <div class="slide-left">
+          <img src="${s.immagine}" alt="">
+        </div>
+        <div class="slide-right">
+          <h3>${s.caption || ''}</h3>
+          <p>${s.descrizione || ''}</p>
+        </div>`;
+      wrap.appendChild(d);
+    });
+
+    const prev = document.querySelector('.news-carousel .prev');
+    const next = document.querySelector('.news-carousel .next');
+    const items = document.querySelectorAll('.news-carousel .slide');
+
+    let i = 0;
+    const n = items.length;
+
+    const upd = () => {
+      wrap.style.transform = `translateX(${-i * 100}%)`;
+    };
+
+    let timer;
+    function startAutoPlay() {
+      clearInterval(timer);
+      timer = setInterval(() => {
+        i = (i + 1) % n;
+        upd();
+      }, 7000);
+    }
+
+    prev.addEventListener('click', () => {
+      i = (i - 1 + n) % n;
+      upd();
+      startAutoPlay();
+    });
+
+    next.addEventListener('click', () => {
+      i = (i + 1) % n;
+      upd();
+      startAutoPlay();
+    });
+
+    upd();
+    startAutoPlay();
+  } catch (e) {
+    console.error('Carosello:', e);
+  }
+}
+
+
+
+
+
+    let newsData = [];
+    async function initNews(){
+      try{
+        const rows = await fetchSheet('News');
+        newsData = rows.map(r => ({
+          id: tidy(r.id),
+          titolo: tidy(r.titolo),
+          immagine: fixImg(r.immagine),
+          contenuto: tidy(r.contenuto)
+        }));
+
+        const grid = $('.news-grid');
+        if(!grid) return;
+        grid.innerHTML = '';
+
+        for(const n of newsData){
+          const f = document.createElement('figure');
+          f.className = 'news-card';
+          f.dataset.id = n.id;
+          f.innerHTML = `
+            <img src="${n.immagine}" alt="${n.titolo}">
+            <figcaption>${n.titolo}</figcaption>`;
+          grid.appendChild(f);
+        }
+
+        document.addEventListener('click', (e) => {
+          const card = e.target.closest('.news-card');
+          if(!card) return;
+          e.preventDefault();
+          showNews(card.dataset.id);
+        });
+
+        const hid = location.hash.slice(1);
+        if(hid) showNews(hid, true);
+
+        window.addEventListener('popstate', (e) => {
+          if(e.state && e.state.id) showNews(e.state.id, true);
+          else location.reload();
+        });
+      }catch(e){
+        console.error('News:', e);
+      }
+    }
+
+    function showNews(id, replace=false){
+  const main = document.querySelector('main');
+  if (!main) return;
+
+  const n = newsData.find(x => String(x.id) === String(id));
+  if (!n){ main.innerHTML = '<p>News non trovata.</p>'; return; }
+
+// === Formattazione testo News (funziona con paragrafi e righe singole) ===
+const format = (txt) => {
+  if (!txt) return '';
+  let s = String(txt).trim();
+
+  // 1️⃣ Rimuove virgolette doppie tipiche dei CSV esportati
+  if (s.startsWith('"') && s.endsWith('"')) {
+    s = s.slice(1, -1).replace(/""/g, '"');
+  }
+
+  // 2️⃣ Normalizza ogni tipo di "a capo" (inclusi HTML codificati)
+  s = s
+  .replace(/&#10;|&#13;|\\r\\n|\\r|\\n|\r\n|\r|\n|\u000A|\u000D|\u2028|\u2029/g, '\n')
+
+    .replace(/<br\s*\/?>/gi, '\n');
+
+  // 3️⃣ Evidenziazione: *testo* → <strong>testo</strong>
+  s = s.replace(/\*\s*(.*?)\s*\*/g, '<strong>$1</strong>');
+
+  // 4️⃣ Paragrafi: due o più newline = nuovo paragrafo
+  //     Singolo newline = <br> (utile per elenchi o righe emoji)
+  return s
+    .split(/\n{2,}/)
+    .map(p => `<p>${p.replace(/\n/g, '<br>')}</p>`)
+    .join('');
+};
+
+
+
+
+  main.innerHTML = `
+    <article class="news-detail">
+      <h2>${n.titolo}</h2>
+      <img src="${n.immagine}" alt="${n.titolo}">
+      ${format(n.contenuto)}
+      <button class="back-btn" type="button" onclick="history.back()">⬅ Torna indietro</button>
+    </article>
+  `;
+
+  window.scrollTo({ top: 0 });
+  if (replace) history.replaceState({ id }, '', `#${id}`);
+  else history.pushState({ id }, '', `#${id}`);
+}
+
+
+
+
+    async function initScarabei(){
+      try{
+        const rows = await fetchSheet('Scarabei');
+        const c = $('#scarabei-container');
+        if(!c) return;
+        c.innerHTML = '';
+
+        for(const p of rows){
+          const d = document.createElement('div');
+          d.className = 'mvp-card';
+          d.innerHTML = `
+            <img src="${fixImg(p.immagine)}" alt="${tidy(p.nome) || ''}">
+            <h3>${tidy(p.nome) || ''}</h3>
+            <p>${tidy(p.categoria) || ''}</p>
+            ${p.prestazione ? `<p><strong>Prestazione 🏐</strong><br>${tidy(p.prestazione)}</p>` : ''}`;
+          c.appendChild(d);
+        }
+      }catch(e){
+        console.error('Scarabei:', e);
+      }
+    }
+
+  async function initRisultati(){
+  const btns = $$('.filter-btn');
+  const box  = $('#results-container');
+
+  const render = (cat, rows) => {
+    if(!box) return;
+    box.innerHTML = '';
+
+    const f = rows
+      .filter(m => (m.categoria || '').toLowerCase() === cat.toLowerCase())
+      .slice(0, 3);
+
+    for(const m of f){
+      const d = document.createElement('div');
+      d.className = 'result-card';
+
+      const casa = tidy(m.risultatoCasa);
+      const osp  = tidy(m.risultatoOspite);
+      const hasScore = casa && osp;
+      const sets = parseSets(m.sets);
+
+     d.innerHTML = `
+  <div class="tv-scoreboard">
+
+    <div class="tv-top">
+      <div class="tv-team">
+        <img src="${fixImg(m.squadraCasa_logo)}" alt="">
+      </div>
+
+      <div class="tv-center">
+        <div class="tv-date">${tidy(m.giorno) || ''}</div>
+        ${hasScore 
+          ? `<div class="tv-score">${casa} - ${osp}</div>` 
+          : `<div class="tv-score pending">VS</div>`}
+        
+      </div>
+
+      <div class="tv-team">
+        <img src="${fixImg(m.squadraOspite_logo)}" alt="">
+      </div>
+    </div>
+
+    ${sets.length ? `
+      <div class="tv-sets">
+        ${sets.map(s => `<span class="tv-set">${s}</span>`).join('')}
+      </div>
+    ` : ''}
+
+  <div class="tv-names-stack">
+  <div class="tv-team home">${tidy(m.squadraCasa_nome) || ''}</div>
+  <div class="tv-vs">VS</div>
+  <div class="tv-team away">${tidy(m.squadraOspite_nome) || ''}</div>
+</div>
+
+
+  </div>
+`;
+
+
+      box.appendChild(d);
+    }
+  };
+
+  try{
+    const rows = await fetchSheet('Risultati');
+    render('Femminile', rows);
+
+    btns.forEach((b) => {
+      b.addEventListener('click', () => {
+        btns.forEach(x => x.classList.remove('active'));
+        b.classList.add('active');
+        render(b.dataset.cat, rows);
+      });
+    });
+  }catch(e){
+    console.error('Risultati:', e);
+  }
+}
+
+
+    function initMenuActive(){
+      const links = $$('#navbar a');
+      const cur = location.pathname.split('/').pop() || 'index.html';
+      links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === cur));
+    }
+async function boot(){
+  initYear();
+  initMenuActive();
+  initImageModal();
+
+  const tasks = [];
+
+  if (typeof initCarosello === 'function') tasks.push(initCarosello());
+  if (typeof initNews === 'function') tasks.push(initNews());
+  if (typeof initScarabei === 'function') tasks.push(initScarabei());
+  if (typeof initRisultati === 'function') tasks.push(initRisultati());
+
+  try {
+    await Promise.all(tasks);
+  } catch (e) {
+    console.warn('Errore async:', e);
+  } finally {
+    hideLoader(); // 🔴 SEMPRE chiamato
+  }
+}
+
+
+
+
+    document.addEventListener('DOMContentLoaded', boot);
+  </script>
+  <script>
+let lastTouchEnd = 0;
+document.addEventListener('touchend', function (event) {
+  const now = Date.now();
+  if (now - lastTouchEnd <= 300) {
+    event.preventDefault();
+  }
+  lastTouchEnd = now;
+}, { passive: false });
+</script>
+
+</body>
+</html>

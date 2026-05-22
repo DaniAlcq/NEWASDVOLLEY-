@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-35L1FT2V6S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-35L1FT2V6S');
+</script>
+
+    <meta name="theme-color" content="#121212">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Giocatori e Staff</title>
+     <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style-apple.css">
+    <!-- Stili SOLO per il main; header/navbar intatti -->
+    <style>
+      .roster-page{background:#1a1a1a;color:#eaeaea}
+      .roster-page *{font-family:inherit}
+
+      .roster-page h1{
+        margin:14px 0 8px;text-align:center;
+        font-size:clamp(28px,4vw,44px)
+      }
+
+      .filter-buttons{
+        display:flex;justify-content:center;gap:14px;margin:8px 10px 28px
+      }
+      .filter-buttons button{
+        border:2px solid #ff03bc;color:#ff03bc;border-radius:999px;
+        padding:10px 18px;cursor:pointer
+      }
+      .filter-buttons button.active{background:#ff03bc;color:#fff}
+
+      .role-section{margin:36px 0 48px}
+      .role-title{
+        letter-spacing:.5px;text-align:center;
+        font-size:clamp(55px,6vw,72px);color:#fff;margin:0 0 12px
+      }
+
+      .juve-grid{
+        position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:26px
+      }
+      .juve-grid::before,.juve-grid::after{content:"";position:absolute;top:0;bottom:0;width:1px;background:#222}
+      .juve-grid::before{left:33.333%}.juve-grid::after{left:66.666%}
+      @media (max-width:1000px){.juve-grid{grid-template-columns:repeat(2,1fr)}.juve-grid::after{display:none}.juve-grid::before{left:50%}}
+      @media (max-width:640px){.juve-grid{grid-template-columns:1fr}.juve-grid::before,.juve-grid::after{display:none}}
+
+      /* Card leggermente più piccola */
+      .player-card{
+        position:relative;border:1px solid #1a1a1a;border-radius:16px;overflow:hidden;background:#1a1a1a;
+        transform:scale(.94);transform-origin:center top;
+      }
+      .player-media{aspect-ratio:3/4;background:#1a1a1a;display:flex;align-items:flex-end;justify-content:center}
+      .player-media img{width:100%;height:90%;object-fit:cover}
+
+      .player-overlay{
+        position:absolute;left:0;right:0;bottom:0;
+        background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.7) 50%, rgba(0,0,0,.95) 100%);
+        padding:10px;
+        display:flex;align-items:flex-end;gap:8px;
+        pointer-events:none
+      }
+      /* Testi leggermente ridotti */
+      .player-num{
+        margin:0;font-family:"Faculty",system-ui,sans-serif;
+        font-weight:800;font-size:clamp(80px,5.2vw,88px);
+        color:#ff03bc;line-height:1;opacity:.98;text-shadow:0 1px 2px rgba(0,0,0,.35)
+      }
+      .name-block{display:flex;flex-direction:column;justify-content:flex-end;min-width:0}
+      .player-first,.player-last{
+        margin:0;font-family:"Faculty",system-ui,sans-serif;text-transform:uppercase;color:#fff;line-height:1;white-space:nowrap
+      }
+      .player-first{font-weight:600;font-size:clamp(24px,2.1vw,24px);opacity:.95}
+      .player-last{font-weight:800;font-size:clamp(44px,3.6vw,46px);opacity:1}
+
+      .player-actions{
+        position:absolute;left:16px;right:16px;bottom:16px;display:flex;gap:10px;flex-wrap:wrap;
+        opacity:0;transform:translateY(8px);pointer-events:none;transition:.2s;z-index:2
+      }
+      .player-card:hover .player-actions{opacity:1;transform:translateY(0);pointer-events:auto}
+      .btn{border:1px solid #1e1e1e;background:#0c0c0c;color:#fff;padding:8px 12px;border-radius:10px;text-decoration:none}
+      .btn[primary]{background:#fff;color:#000;border-color:#fff}
+    </style>
+  </head>
+
+<body>
+  <!-- HEADER INVARIATO -->
+  <header class="header-tot">
+    <img class="brand-logo" src="img/log.png" alt="Logo">
+    <button class="hamburger" id="hamburger" aria-label="Apri menu">&#9776;</button>
+    <nav id="navbar">
+      <a href="index.html" data-url="index.html">Home</a>
+      <a href="squadre.html" data-url="squadre.html">Squadre e Società</a>
+      <a href="calendario.html" data-url="calendario.html">Calendario e Risultati</a>
+      <a href="classifiche.html" data-url="classifiche.html">Classifiche</a>
+      <a href="contatti.html" data-url="contatti.html">Contatti</a>
+      
+      
+      
+      
+    </nav>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/a.s.d.volley96/" target="_blank" rel="noopener noreferrer">
+        <img class="social-logo-insta" src="img/instagram.png" alt="Instagram">
+      </a>
+      <a href="https://www.facebook.com/asdvolley96" target="_blank" rel="noopener noreferrer">
+        <img class="social-logo-facebook" src="img/facebook.png" alt="Facebook">
+      </a>
+        <a href="https://www.youtube.com/@ASD_VOLLEY96" target="_blank" rel="noopener noreferrer">
+        <img class="social-logo-youtube" src="img/youtube.png" alt="Youtube">
+      </a>
+    </div>
+  </header>
+
+  <main class="roster-page">
+    <h1>Squadre e società</h1>
+    <div class="filter-buttons">
+      <button id="btn-femminile">Serie C Femminile</button>
+      <button id="btn-maschile">Serie C Maschile</button>
+      <button id="btn-staff">Dirigenza & Staff</button>
+    </div>
+
+    <section id="giocatori-list"></section>
+    <script src="js/fade.js"></script>
+    <a id="live-button" class="live-fab live-hidden" href="#" target="_blank" rel="noopener">
+      <span class="dot"></span> Guarda la diretta
+    </a>
+    
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> ASD VOLLEY 96 — Tutti i diritti riservati</p>
+    <p>Web design & sviluppo © 2025 <a href="mailto:danilo.lcq@gmail.com">Danilo Alacqua</a></p>
+  </footer>
+
+  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+  <script src="js/menu.js" defer></script>
+  <script src="js/live.js" defer></script>
+
+
+  <script>
+    // ======= Google Sheets via Opensheet =======
+    const SHEET_ID = "1ucM1JY5MXHF7-9mpjp2mfB41TvoA1ziMUGGz86woQXA";
+    const GS = (tab) => `https://opensheet.elk.sh/${SHEET_ID}/${encodeURIComponent(tab)}`;
+
+    async function fetchSheet(tab) {
+      const res = await fetch(GS(tab), { cache: "no-store" });
+      if (!res.ok) throw new Error(`Fetch fallito: ${tab} (${res.status})`);
+      return res.json();
+    }
+    
+
+    // Utils
+    const tidy = s => typeof s === "string" ? s.trim() : s;
+    const nonEmpty = v => v !== undefined && v !== null && String(v).trim() !== "";
+
+    // Riferimenti DOM
+    const btnFemminile = document.getElementById("btn-femminile");
+    const btnMaschile  = document.getElementById("btn-maschile");
+    const btnStaff  = document.getElementById("btn-staff");
+    const container    = document.getElementById("giocatori-list");
+
+    btnFemminile?.addEventListener("click", () => switchCat("femminile"));
+    btnMaschile ?.addEventListener("click", () => switchCat("maschile"));
+    btnStaff ?.addEventListener("click", () => switchCat("staff"));
+
+   function setActive(cat){
+  [btnFemminile, btnMaschile, btnStaff].forEach(btn => {
+    if (!btn) return;
+    btn.classList.remove("active");
+    btn.blur(); // 🔥 rimuove stato iOS :active
+  });
+
+  if (cat === "femminile") btnFemminile.classList.add("active");
+  if (cat === "maschile") btnMaschile.classList.add("active");
+  if (cat === "staff") btnStaff.classList.add("active");
+}
+let switching = false;
+
+function switchCat(cat){
+  if (switching) return;
+  switching = true;
+
+  setActive(cat);
+  render(cat);
+  history.replaceState(null, "", `?cat=${cat}`);
+
+  setTimeout(() => switching = false, 150);
+}
+
+
+    // ===== RUOLI con genere dinamico =====
+function normalizeBaseRole(s){
+  if(!nonEmpty(s)) return "altro";
+  const x = String(s).toLowerCase().trim();
+
+  if (x.includes("centr")) return "centrale";
+  if (x.includes("pall")) return "palleggiatore";
+  if (x.includes("oppos")) return "opposto";
+  if (x.includes("schiac")) return "schiacciatore";
+  if (x.includes("lib")) return "libero";
+  if (x.includes("allenatore - giocatore")) return "allenatore - giocatore";
+  if (x.includes("allen")) return "allenatore";
+  if (x.includes("dirig")) return "dirigente";
+  if (x.includes("mass")) return "massaggiatore";
+  if (x.includes("foto")) return "fotografa";
+  if (x.includes("direttore sportivo")) return "direttore-sportivo";
+  if (x.includes("direttore generale")) return "direttore-generale";
+  if (x.includes("tecnico")) return "tecnico";
+  if (x.includes("responsabile")) return "responsabile";
+  if (x.includes("vicepresidente")) return "vicepresidente";
+  if (x.includes("presidente")) return "presidente";
+
+  return "altro";
+}
+
+
+    function inflectRole(baseKey, categoria){
+  const fem = categoria === "femminile";
+  switch(baseKey){
+    case "centrale": return "Centrali";
+    case "palleggiatore": return fem ? "Palleggiatrici" : "Palleggiatori";
+    case "opposto": return "Opposti";
+    case "schiacciatore": return fem ? "Schiacciatrici" : "Schiacciatori";
+    case "libero": return "Liberi";
+    case "presidente": return "Presidente";
+    case "vicepresidente": return "Vicepresidente";
+    case "direttore-generale": return "Direttore Generale";
+    case "direttore-sportivo": return "Direttore Sportivo";
+    case "dirigente": return "Dirigenti";
+    case "tecnico": return "Tecnici";
+    case "allenatore - giocatore": return "Allenatore - Giocatore";
+    case "allenatore": return "Allenatore";
+    case "massaggiatore": return "Massaggiatori";
+    case "fotografa": return "Fotografi";
+    case "responsabile": return "Responsabili";
+    
+    default: return "Altro";
+  }
+}
+
+
+    const ROLE_ORDER_BASE = [
+      "centrale","palleggiatore","opposto","schiacciatore","libero","ala",
+      "allenatore","dirigente","preparatore","allenatore - giocatore","tecnico","vicepresidente"
+    ];
+    function byBaseOrder(a,b){
+      const ia = ROLE_ORDER_BASE.indexOf(a), ib = ROLE_ORDER_BASE.indexOf(b);
+      if (ia === -1 && ib === -1) return a.localeCompare(b);
+      if (ia === -1) return 1;
+      if (ib === -1) return -1;
+      return ia - ib;
+    }
+    let imagePriorityCounter = 0;
+
+function playerCard(p, cat){
+  const el = document.createElement("article");
+  el.className = "player-card";
+
+  if(cat === "staff" && nonEmpty(p.ruolo)){
+    const roleLabel = document.createElement("div");
+    roleLabel.className = "staff-role-label";
+    roleLabel.textContent = p.ruolo;
+    el.appendChild(roleLabel);
+  }
+
+  const media = document.createElement("div");
+  media.className = "player-media";
+
+  const img = document.createElement("img");
+  img.decoding = "async";
+
+  // 🔥 PRIORITÀ INTELLIGENTE
+  if (imagePriorityCounter < 4) {
+    img.fetchPriority = "high";
+    img.loading = "eager";
+  } else {
+    img.loading = "lazy";
+  }
+
+  imagePriorityCounter++;
+
+  img.src = tidy(p.immagine) || "";
+  img.alt = p.nome ? `Foto di ${p.nome}` : "Foto";
+
+  media.appendChild(img);
+  el.appendChild(media);
+
+  const overlay = document.createElement("div");
+  overlay.className = "player-overlay";
+
+  const num = document.createElement("p");
+  num.className = "player-num";
+  num.textContent = nonEmpty(p.numero) ? String(p.numero).trim() : "";
+  overlay.appendChild(num);
+
+  const parts = String(p.nome || "").trim().split(/\s+/);
+  const first = parts[0] || "";
+  const last  = parts.slice(1).join(" ") || first;
+
+  const nameBlock = document.createElement("div");
+  nameBlock.className = "name-block";
+
+  const f = document.createElement("p");
+  f.className = "player-first";
+  f.textContent = first;
+
+  const l = document.createElement("p");
+  l.className = "player-last";
+  l.textContent = last;
+
+  nameBlock.appendChild(f);
+  nameBlock.appendChild(l);
+  overlay.appendChild(nameBlock);
+
+  el.appendChild(overlay);
+  return el;
+}
+
+
+
+    function renderRoleSection(displayTitle, list){
+      const sec = document.createElement("section");
+      sec.className = "role-section";
+      const h2 = document.createElement("h2");
+      h2.className = "role-title";
+      h2.textContent = displayTitle;
+      sec.appendChild(h2);
+
+      const grid = document.createElement("div");
+      grid.className = "juve-grid";
+      list.forEach(p => grid.appendChild(playerCard(p)));
+      sec.appendChild(grid);
+
+      return sec;
+    }
+
+    let DATA = { femminile:[], maschile:[], staff:[] };
+
+    async function load(){
+      container.innerHTML = `<p style="text-align:center;color:#ff0084;font-weight:800">Caricamento…</p>`;
+      const rows = await fetchSheet("Squadre");
+
+      const fem=[], mas=[], stf=[];
+      rows.forEach(r=>{
+        const o = {
+          nome: tidy(r.nome),
+          numero: tidy(r.numero),
+          ruolo: tidy(r.ruolo),
+          categoria: tidy(r.categoria),
+          immagine: tidy(r.immagine),
+          profilo: tidy(r.profilo),
+          video: tidy(r.video),
+          shop: tidy(r.shop)
+        };
+        const c = (o.categoria || "").toLowerCase();
+        if (c === "femminile") fem.push(o);
+        else if (c === "maschile") mas.push(o);
+        else if (c === "staff") stf.push(o);
+      });
+      DATA = { femminile:fem, maschile:mas, staff:stf };
+
+      const qs = new URLSearchParams(location.search);
+      const raw = (qs.get("cat") || "femminile").toLowerCase();
+const allowed = ["femminile", "maschile", "staff"];
+const cat = allowed.includes(raw) ? raw : "femminile";
+
+      setActive(cat);
+      render(cat);
+    }
+
+  function render(cat){
+    imagePriorityCounter = 0;
+
+  const list = DATA[cat];
+
+  if(!list.length){ 
+    container.innerHTML = `<p style="text-align:center;color:#bdbdbd">Nessun dato.</p>`; 
+    return; 
+  }
+
+  container.innerHTML = "";
+
+  // ===== STAFF: niente macro-sezioni =====
+  if(cat === "staff"){
+    const grid = document.createElement("div");
+    grid.className = "juve-grid";
+
+    list.forEach(p => {
+      grid.appendChild(playerCard(p, "staff"));
+    });
+
+    container.appendChild(grid);
+    return;
+  }
+
+  // ===== FEMMINILE / MASCHILE: con macro-sezioni =====
+  const map = new Map();
+  list.forEach(p=>{
+    const key = normalizeBaseRole(p.ruolo);
+    if(!map.has(key)) map.set(key, []);
+    map.get(key).push(p);
+  });
+
+  for(const [k,arr] of map){
+    arr.sort((a,b)=>{
+      const na=parseInt(a.numero,10), nb=parseInt(b.numero,10);
+      if(!isNaN(na)&&!isNaN(nb)&&na!==nb) return na-nb;
+      return String(a.nome||"").localeCompare(String(b.nome||""));
+    });
+  }
+
+  const orderedKeys = Array.from(map.keys()).sort(byBaseOrder);
+
+  orderedKeys.forEach(baseKey=>{
+    const title = inflectRole(baseKey, cat);
+    const sec = document.createElement("section");
+    sec.className = "role-section";
+
+    const h2 = document.createElement("h2");
+    h2.className = "role-title";
+    h2.textContent = title;
+    sec.appendChild(h2);
+
+    const grid = document.createElement("div");
+    grid.className = "juve-grid";
+
+    map.get(baseKey).forEach(p => {
+      grid.appendChild(playerCard(p, cat));
+    });
+
+    sec.appendChild(grid);
+    container.appendChild(sec);
+  });
+}
+
+
+    function switchCat(cat){
+      setActive(cat);
+      render(cat);
+      history.replaceState(null, "", `?cat=${cat}`);
+    }
+
+    load().catch(e=>{
+      console.error(e);
+      container.innerHTML = `<p style="text-align:center;color:#f55">Errore caricamento.</p>`;
+    });
+
+    (function highlightActive(){
+      const navLinks = document.querySelectorAll("nav a");
+      const currentPage = window.location.pathname.split("/").pop() || "index.html";
+      navLinks.forEach((link) => {
+        const linkPage = link.getAttribute("href");
+        if (linkPage === currentPage) link.classList.add("active");
+        else link.classList.remove("active");
+      });
+    })();
+  </script>
+  <script>
+let lastTouchEnd = 0;
+document.addEventListener('touchend', function (event) {
+  const now = Date.now();
+  if (now - lastTouchEnd <= 300) {
+    event.preventDefault();
+  }
+  lastTouchEnd = now;
+}, { passive: false });
+</script>
+<script>
+  document.documentElement.classList.add('ready');
+</script>
+
+</body>
+</html>

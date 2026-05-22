@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#121212">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Calendario — ASD Volley 96</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style-apple.css">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-35L1FT2V6S"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-35L1FT2V6S');
+  </script>
+</head>
+<body>
+
+  <header class="header-tot">
+    <img class="brand-logo" src="img/log.png" alt="Logo">
+
+    <button class="hamburger" id="hamburger" aria-label="Apri menu" aria-expanded="false">
+      &#9776;
+    </button>
+
+    <nav id="navbar">
+      <a href="index.html"        data-url="index.html">Home</a>
+      <a href="squadre.html"      data-url="squadre.html">Squadre e Società</a>
+      <a href="calendario.html"   data-url="calendario.html">Calendario e Risultati</a>
+      <a href="classifiche.html"  data-url="classifiche.html">Classifiche</a>
+      <a href="contatti.html"     data-url="contatti.html">Contatti</a>
+    </nav>
+
+    <div class="social-icons">
+      <a href="https://www.instagram.com/a.s.d.volley96/" target="_blank" rel="noopener noreferrer">
+        <img class="social-logo-insta" src="img/instagram.png" alt="Instagram">
+      </a>
+      <a href="https://www.facebook.com/asdvolley96" target="_blank" rel="noopener noreferrer">
+        <img class="social-logo-facebook" src="img/facebook.png" alt="Facebook">
+      </a>
+      <a href="https://www.youtube.com/@ASD_VOLLEY96" target="_blank" rel="noopener noreferrer">
+        <img class="social-logo-youtube" src="img/youtube.png" alt="Youtube">
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <h1>Calendario Partite</h1>
+
+    <div class="filter-buttons">
+      <button id="btn-femminile" class="filter-btn">Serie C Femminile</button>
+      <button id="btn-maschile"  class="filter-btn">Serie C Maschile</button>
+    </div>
+
+    <div class="calendar-wrapper">
+      <table id="calendar-table" class="table rounded">
+        <thead>
+          <tr>
+            <th>G</th>
+            <th>Data</th>
+            <th>Avversario</th>
+            <th>C/T</th>
+            <th>Ris.</th>
+          </tr>
+        </thead>
+        <tbody id="calendar-body"></tbody>
+      </table>
+    </div>
+
+    <a id="live-button" class="live-fab live-hidden" href="#" target="_blank" rel="noopener">
+      <span class="dot"></span> Guarda la diretta
+    </a>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> ASD VOLLEY 96 — Tutti i diritti riservati</p>
+    <p>Web design & sviluppo © 2025 <a href="mailto:danilo.lcq@gmail.com">Danilo Alacqua</a></p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const y = document.getElementById('year');
+      if (y) y.textContent = new Date().getFullYear();
+    });
+  </script>
+
+  <script src="js/menu.js" defer></script>
+  <script src="js/live.js" defer></script>
+  <script src="js/calendario.js" defer></script>
+
+  <script>
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', (e) => {
+      const now = Date.now();
+      if (now - lastTouchEnd <= 300) e.preventDefault();
+      lastTouchEnd = now;
+    }, { passive: false });
+  </script>
+  <script>document.documentElement.classList.add('ready');</script>
+</body>
+</html>
