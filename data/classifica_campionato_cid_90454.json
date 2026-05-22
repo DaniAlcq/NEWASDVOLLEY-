@@ -1,0 +1,49 @@
+{
+  "campionato": "Campionato CId=90454",
+  "cid": "90454",
+  "aggiornato": "2026-05-22T09:44:35+00:00",
+  "items": [
+    {
+      "posizione": 1,
+      "nome": "VOLLEY PALERMO",
+      "logo": "https://sicilia.portalefipav.net/mngArea/Societa/img/3335/Loghi/LogoS3335.png",
+      "punti": 7,
+      "partite_giocate": 3,
+      "vittorie": 3,
+      "sconfitte": 0,
+      "set_fatti": 6,
+      "set_subiti": 2,
+      "punti_fatti": 191,
+      "punti_subiti": 149,
+      "penalita": 0
+    },
+    {
+      "posizione": 2,
+      "nome": "MONDELLO SITTING",
+      "logo": "https://sicilia.portalefipav.net/mngArea/Societa/img/2292/Loghi/LogoS2292.jpg",
+      "punti": 5,
+      "partite_giocate": 3,
+      "vittorie": 1,
+      "sconfitte": 2,
+      "set_fatti": 4,
+      "set_subiti": 4,
+      "punti_fatti": 166,
+      "punti_subiti": 173,
+      "penalita": 0
+    },
+    {
+      "posizione": 3,
+      "nome": "VOLLEY SPORT ALCAMO",
+      "logo": "https://sicilia.portalefipav.net/mngArea/Societa/img/5299/Loghi/LogoS5299.jpeg",
+      "punti": 0,
+      "partite_giocate": 2,
+      "vittorie": 0,
+      "sconfitte": 2,
+      "set_fatti": 0,
+      "set_subiti": 4,
+      "punti_fatti": 65,
+      "punti_subiti": 100,
+      "penalita": 0
+    }
+  ]
+}

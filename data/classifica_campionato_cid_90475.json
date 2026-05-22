@@ -1,0 +1,77 @@
+{
+  "campionato": "Campionato CId=90475",
+  "cid": "90475",
+  "aggiornato": "2026-05-22T09:44:37+00:00",
+  "items": [
+    {
+      "posizione": 1,
+      "nome": "VOLLEY GIBELLINA",
+      "logo": "https://sicilia.portalefipav.net/mngArea/Societa/img/2380/Loghi/LogoS2380.jpg",
+      "punti": 3,
+      "partite_giocate": 1,
+      "vittorie": 1,
+      "sconfitte": 0,
+      "set_fatti": 2,
+      "set_subiti": 0,
+      "punti_fatti": 50,
+      "punti_subiti": 21,
+      "penalita": 0
+    },
+    {
+      "posizione": 2,
+      "nome": "ERICINA VOLLEY",
+      "logo": "https://sicilia.portalefipav.net/mngArea/Societa/img/2397/Loghi/LogoS2397.jpg",
+      "punti": 0,
+      "partite_giocate": 1,
+      "vittorie": 0,
+      "sconfitte": 1,
+      "set_fatti": 0,
+      "set_subiti": 2,
+      "punti_fatti": 21,
+      "punti_subiti": 50,
+      "penalita": 0
+    },
+    {
+      "posizione": 3,
+      "nome": "JUNIOR CLUB ACADEMY",
+      "logo": "https://sicilia.portalefipav.net/mngArea/Societa/img/5246/Loghi/LogoS5246.jpg",
+      "punti": 0,
+      "partite_giocate": 0,
+      "vittorie": 0,
+      "sconfitte": 0,
+      "set_fatti": 0,
+      "set_subiti": 0,
+      "punti_fatti": 0,
+      "punti_subiti": 0,
+      "penalita": 0
+    },
+    {
+      "posizione": 4,
+      "nome": "VOLLEY PALERMO",
+      "logo": "https://sicilia.portalefipav.net/mngArea/Societa/img/3335/Loghi/LogoS3335.png",
+      "punti": 0,
+      "partite_giocate": 0,
+      "vittorie": 0,
+      "sconfitte": 0,
+      "set_fatti": 0,
+      "set_subiti": 0,
+      "punti_fatti": 0,
+      "punti_subiti": 0,
+      "penalita": 0
+    },
+    {
+      "posizione": 5,
+      "nome": "VOLLEY SPORT ALCAMO",
+      "logo": "https://sicilia.portalefipav.net/mngArea/Societa/img/5299/Loghi/LogoS5299.jpeg",
+      "punti": 0,
+      "partite_giocate": 0,
+      "vittorie": 0,
+      "sconfitte": 0,
+      "set_fatti": 0,
+      "set_subiti": 0,
+      "punti_fatti": 0,
+      "punti_subiti": 0,
+      "penalita": 0
+    }
+  ]
+}

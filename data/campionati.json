@@ -1,4 +1,19 @@
 {
-  "aggiornato": null,
-  "items": []
+  "aggiornato": "2026-05-22T09:44:37+00:00",
+  "items": [
+    {
+      "cid": "90454",
+      "nome": "Campionato CId=90454",
+      "slug": "campionato_cid_90454",
+      "categoria": "altro",
+      "girone": ""
+    },
+    {
+      "cid": "90475",
+      "nome": "Campionato CId=90475",
+      "slug": "campionato_cid_90475",
+      "categoria": "altro",
+      "girone": ""
+    }
+  ]
 }
