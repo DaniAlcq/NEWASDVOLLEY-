@@ -1,0 +1,63 @@
+{
+  "campionato": "SERIE C MASCHILE - PLAY-OFF PROMOZIONE 2° Turno",
+  "cid": "91021",
+  "aggiornato": "2026-05-22T09:55:50+00:00",
+  "items": [
+    {
+      "posizione": 1,
+      "nome": "GIARRATANA VOLLEY",
+      "logo": "https://sicilia.portalefipav.net/mngArea/Societa/img/5344/Loghi/LogoS5344.jpeg",
+      "punti": 3,
+      "partite_giocate": 1,
+      "vittorie": 1,
+      "sconfitte": 0,
+      "set_fatti": 3,
+      "set_subiti": 0,
+      "punti_fatti": 75,
+      "punti_subiti": 46,
+      "penalita": 0
+    },
+    {
+      "posizione": 2,
+      "nome": "ASD VOLLEY GIBELLINA 2004",
+      "logo": "https://sicilia.portalefipav.net/mngArea/Societa/img/2380/Loghi/LogoS2380.jpg",
+      "punti": 2,
+      "partite_giocate": 1,
+      "vittorie": 1,
+      "sconfitte": 0,
+      "set_fatti": 3,
+      "set_subiti": 2,
+      "punti_fatti": 109,
+      "punti_subiti": 102,
+      "penalita": 0
+    },
+    {
+      "posizione": 3,
+      "nome": "I SICILIANI GIARRE NEW IMAGE",
+      "logo": "https://sicilia.portalefipav.net/mngArea/Societa/img/5623/Loghi/LogoS5623.png",
+      "punti": 1,
+      "partite_giocate": 1,
+      "vittorie": 0,
+      "sconfitte": 1,
+      "set_fatti": 2,
+      "set_subiti": 3,
+      "punti_fatti": 102,
+      "punti_subiti": 109,
+      "penalita": 0
+    },
+    {
+      "posizione": 4,
+      "nome": "ADG NDT SOLUTIONS - VOLLEY '96",
+      "logo": "https://sicilia.portalefipav.net/mngArea/Societa/img/2225/Loghi/LogoS2225.jpg",
+      "punti": 0,
+      "partite_giocate": 1,
+      "vittorie": 0,
+      "sconfitte": 1,
+      "set_fatti": 0,
+      "set_subiti": 3,
+      "punti_fatti": 46,
+      "punti_subiti": 75,
+      "penalita": 0
+    }
+  ]
+}

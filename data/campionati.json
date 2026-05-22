@@ -1,18 +1,39 @@
 {
-  "aggiornato": "2026-05-22T09:44:37+00:00",
+  "aggiornato": "2026-05-22T09:55:50+00:00",
   "items": [
     {
-      "cid": "90454",
-      "nome": "Campionato CId=90454",
-      "slug": "campionato_cid_90454",
-      "categoria": "altro",
+      "cid": "85777",
+      "nome": "SERIE C MASCHILE - Girone A",
+      "slug": "serie_c_maschile_girone_a",
+      "categoria": "maschile",
+      "girone": "A"
+    },
+    {
+      "cid": "90684",
+      "nome": "SERIE C MASCHILE - PLAY-OFF PROMOZIONE 1° Turno",
+      "slug": "serie_c_maschile_play_off_promozione_1_turno",
+      "categoria": "maschile",
       "girone": ""
     },
     {
-      "cid": "90475",
-      "nome": "Campionato CId=90475",
-      "slug": "campionato_cid_90475",
-      "categoria": "altro",
+      "cid": "91021",
+      "nome": "SERIE C MASCHILE - PLAY-OFF PROMOZIONE 2° Turno",
+      "slug": "serie_c_maschile_play_off_promozione_2_turno",
+      "categoria": "maschile",
+      "girone": ""
+    },
+    {
+      "cid": "85779",
+      "nome": "SERIE C FEMMINILE - Girone B",
+      "slug": "serie_c_femminile_girone_b",
+      "categoria": "femminile",
+      "girone": "B"
+    },
+    {
+      "cid": "90952",
+      "nome": "PLAY-OFF UNDER 15 MASCHILE - QUARTI DI FINALE",
+      "slug": "play_off_under_15_maschile_quarti_di_finale",
+      "categoria": "maschile",
       "girone": ""
     }
   ]

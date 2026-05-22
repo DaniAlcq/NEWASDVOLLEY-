@@ -1,0 +1,91 @@
+{
+  "campionato": "PLAY-OFF UNDER 15 MASCHILE - QUARTI DI FINALE",
+  "cid": "90952",
+  "aggiornato": "2026-05-22T09:55:50+00:00",
+  "items": [
+    {
+      "posizione": 1,
+      "nome": "DON ORIONE & CAPACENSE",
+      "logo": "https://sicilia.portalefipav.net/mngArea/Societa/img/2275/Loghi/LogoS2275.jpg",
+      "punti": 3,
+      "partite_giocate": 1,
+      "vittorie": 1,
+      "sconfitte": 0,
+      "set_fatti": 3,
+      "set_subiti": 0,
+      "punti_fatti": 75,
+      "punti_subiti": 56,
+      "penalita": 0
+    },
+    {
+      "posizione": 2,
+      "nome": "SPORTISOLA&TERRASINI",
+      "logo": "https://sicilia.portalefipav.net/mngArea/Societa/img/3006/Loghi/LogoS3006.jpg",
+      "punti": 3,
+      "partite_giocate": 1,
+      "vittorie": 1,
+      "sconfitte": 0,
+      "set_fatti": 3,
+      "set_subiti": 0,
+      "punti_fatti": 77,
+      "punti_subiti": 60,
+      "penalita": 0
+    },
+    {
+      "posizione": 3,
+      "nome": "ASD FREE BALL RAGUSA",
+      "logo": "https://sicilia.portalefipav.net/mngArea/Societa/img/3717/Loghi/LogoS3717.png",
+      "punti": 3,
+      "partite_giocate": 1,
+      "vittorie": 1,
+      "sconfitte": 0,
+      "set_fatti": 3,
+      "set_subiti": 1,
+      "punti_fatti": 97,
+      "punti_subiti": 74,
+      "penalita": 0
+    },
+    {
+      "posizione": 4,
+      "nome": "ACADEMY WARRIORS VIAGRANDE",
+      "logo": "https://sicilia.portalefipav.net/mngArea/Societa/img/2167/Loghi/LogoS2167.png",
+      "punti": 0,
+      "partite_giocate": 1,
+      "vittorie": 0,
+      "sconfitte": 1,
+      "set_fatti": 1,
+      "set_subiti": 3,
+      "punti_fatti": 74,
+      "punti_subiti": 97,
+      "penalita": 0
+    },
+    {
+      "posizione": 5,
+      "nome": "ASD VOLLEY '96",
+      "logo": "https://sicilia.portalefipav.net/mngArea/Societa/img/2225/Loghi/LogoS2225.jpg",
+      "punti": 0,
+      "partite_giocate": 1,
+      "vittorie": 0,
+      "sconfitte": 1,
+      "set_fatti": 0,
+      "set_subiti": 3,
+      "punti_fatti": 60,
+      "punti_subiti": 77,
+      "penalita": 0
+    },
+    {
+      "posizione": 6,
+      "nome": "NON SOLO VELA",
+      "logo": "https://sicilia.portalefipav.net/mngArea/Societa/img/4445/Loghi/LogoS4445.jpg",
+      "punti": 0,
+      "partite_giocate": 1,
+      "vittorie": 0,
+      "sconfitte": 1,
+      "set_fatti": 0,
+      "set_subiti": 3,
+      "punti_fatti": 56,
+      "punti_subiti": 75,
+      "penalita": 0
+    }
+  ]
+}
